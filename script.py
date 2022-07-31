@@ -1,11 +1,12 @@
+
+
 def eda_script(data_path):
     import pandas as pd
     import numpy as np
     import matplotlib.pyplot as plt
     import seaborn as sns
     from scipy.stats import skew
-    import os
-    import time
+   
     
     # load data and some basic info
     try:
@@ -21,10 +22,9 @@ def eda_script(data_path):
                     df = pd.read_xml(data_path)
                 except Exception :
                     print('wrong data path check the path and that your data has these extension :\n\
-                1- csv\
-                2- excel\
-                3- json\
-                4- xml')
+                 csv\excel\json\ xml')
+                
+               
                     
     else :
         print('DataFrame : ')
@@ -224,20 +224,15 @@ def eda_script(data_path):
             index+=1 
     
     
-   
+    # heatmap
+    plt.figure(figsize=(12, 6))
+    # define the mask to set the values in the upper triangle to True
+    mask = np.triu(np.ones_like(df.corr(), dtype=np.bool))
+    heatmap = sns.heatmap(df.corr(), mask=mask, vmin=-1, vmax=1, annot=True, cmap='BrBG')
+    heatmap.set_title('Triangle Correlation Heatmap', fontdict={'fontsize':18}, pad=16);
         
+   
             
     
     return df
-
-            
-        
-    
-
-
-
-        
-    
-
-
-   
+  
