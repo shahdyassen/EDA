@@ -21,8 +21,8 @@ def eda_script(data_path):
                 try :
                     df = pd.read_xml(data_path)
                 except Exception :
-                    print('wrong data path check the path and that your data has these extension :\n\
-                 csv\excel\json\ xml')
+                    print('wrong data path check the path and that your data has these extension :\n\ csv\excel\json\ xml')
+                
                 
                
                     
